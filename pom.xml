@@ -57,35 +57,37 @@
   </dependencies>
   
   <repositories>
-    <repository>
-      <id>netbeans</id>
-      <name>Netbeans rep</name>
-      <url>http://bits.netbeans.org/maven2/</url>
-    </repository>
-</repositories>
+      <repository>
+          <id>netbeans</id>
+          <name>Netbeans rep</name>
+          <url>http://bits.netbeans.org/maven2/</url>
+      </repository>
+  </repositories>
   
   <build>
-    <plugins>
-<plugin>
-<!--                Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.sbd12.sewamobil.utama</mainClass>
-                        </manifest>
-                    </archive>
-
-                </configuration>
-            </plugin>
-    </plugins>
+      <plugins>
+          <plugin>
+              <!--                Build an executable JAR -->
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>3.0.2</version>
+              <configuration>
+                  <archive>
+                      <manifest>
+                          <addClasspath>true</addClasspath>
+                          <classpathPrefix>lib/</classpathPrefix>
+                          <mainClass>com.sbd12.sewamobil.App</mainClass>
+                      </manifest>
+                  </archive>
+              </configuration>
+          </plugin>
+          
+      </plugins>
   </build>
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+  
+  <properties>
+      <maven.compiler.source>1.8</maven.compiler.source>
+      <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  
 </project>
