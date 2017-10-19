@@ -373,11 +373,14 @@ public class frm_Utama_metro extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            try {
-                new frm_Utama_metro().setVisible(true);
-            } catch (ClassNotFoundException ex) {
-                Logger.getLogger(frm_Utama_metro.class.getName()).log(Level.SEVERE, null, ex);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new frm_Utama_metro().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(frm_Utama_metro.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
