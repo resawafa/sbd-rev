@@ -39,14 +39,14 @@ public class ProdusenMobilJDBCTemplate implements ProdusenMobilDAO {
       return;
    }
    @Override
-   public List<Produsen_Mobil> listSemua() {
+   public List<ProdusenMobil> listSemua() {
       String SQL = "select * from tbl_produsen_mobil";
-      List <Produsen_Mobil> produsens = jdbcTemplateObject.query(SQL, new ProdusenMobilMapper());
+      List <ProdusenMobil> produsens = jdbcTemplateObject.query(SQL, new ProdusenMobilMapper());
       return produsens;
    }
 
    @Override
-    public Produsen_Mobil getId(Integer id) {
+    public ProdusenMobil getId(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

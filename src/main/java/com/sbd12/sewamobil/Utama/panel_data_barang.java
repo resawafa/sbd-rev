@@ -32,13 +32,13 @@ public class panel_data_barang extends javax.swing.JPanel {
      */
     
     public ProdusenTableModel tabelProdusen;
-    public Merk_MobilTableModel tableMerk;
+    public MerkMobilTableModel tableMerk;
    /* public FTambahBarang formtambah;
     public FUpdateBarang formupdate;*/
     public frm_Utama_metro form_parent;
     
-    public List<Produsen_Mobil> produsens ;
-    public List<Merk_Mobil> merk_Mobils ;
+    public List<ProdusenMobil> produsens ;
+    public List<MerkMobil> merk_Mobils ;
     
     public panel_data_barang() throws ClassNotFoundException {
         initComponents();
@@ -66,7 +66,7 @@ public void tampilData_produsen() throws ClassNotFoundException
 public void tampilData_merk() throws ClassNotFoundException
     {
         
-        tableMerk = new Merk_MobilTableModel();
+        tableMerk = new MerkMobilTableModel();
         tableMerk.setData(merk_Mobils);
         jTable1.setModel(tableMerk);
         
@@ -363,8 +363,8 @@ public void tampilData_merk() throws ClassNotFoundException
         // TODO add your handling code here:
         
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
-        Merk_MobilJDBCTemplate merk_mobilJDBCTemplate = (Merk_MobilJDBCTemplate)
-        context.getBean("Merk_MobilJDBCTemplate");
+        MerkMobilJDBCTemplate merk_mobilJDBCTemplate = (MerkMobilJDBCTemplate)
+        context.getBean("MerkMobilJDBCTemplate");
         
         
         merk_Mobils = merk_mobilJDBCTemplate.listSemua();

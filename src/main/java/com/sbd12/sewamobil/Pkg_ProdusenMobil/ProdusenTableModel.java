@@ -17,10 +17,10 @@ import javax.swing.table.AbstractTableModel;
  * @author ArieDZ
  */
 public class ProdusenTableModel extends AbstractTableModel{
-    private List<Produsen_Mobil> data;
+    private List<ProdusenMobil> data;
     private String[] nameField={"ID","Nama Produsen"};
     
-    public void setData(List<Produsen_Mobil> data)
+    public void setData(List<ProdusenMobil> data)
     {
         this.data=data;
     }
@@ -37,11 +37,11 @@ public class ProdusenTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int baris, int kolom) {
         
-        Produsen_Mobil kst=data.get(baris);
+        ProdusenMobil kst=data.get(baris);
         switch(kolom)
         {
-            case 0: return kst.getId();
-            case 1: return kst.getNama();
+            case 0: return kst.getId_produsen();
+            case 1: return kst.getNama_produsen();
             default : return null;
         }
     }

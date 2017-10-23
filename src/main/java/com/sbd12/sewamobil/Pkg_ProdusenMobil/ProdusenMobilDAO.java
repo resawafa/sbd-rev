@@ -29,12 +29,12 @@ public interface ProdusenMobilDAO {
      * @param age
    */
    public void create(String name, Integer age);
-   public Produsen_Mobil getId(Integer id);
+   public ProdusenMobil getId(Integer id);
    
    /** 
      * This is the method to be used to list down
      * all the records from the Student table.
      * @return 
    */
-   public List<Produsen_Mobil> listSemua();
+   public List<ProdusenMobil> listSemua();
 }

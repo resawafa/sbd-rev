@@ -12,7 +12,7 @@ package com.sbd12.sewamobil.Pkg_Merk_Mobil;
  *
  * @author ArieDZ_2
  */
-public class Merk_Mobil {
+public class MerkMobil {
    private String id_merk_mobil;
    private String nama_Merk_Mobil;
    private String id_produsen_mobil;
@@ -20,44 +20,44 @@ public class Merk_Mobil {
    private String id_jenis;
    private String nama_jenis;
 
-   public void setIdMerk(String id) {
+   public void setId_merk_mobil(String id) {
       this.id_merk_mobil = id;
    }
-   public String getIdMerk() {
+   public String getId_merk_mobil() {
       return id_merk_mobil;
    }
-   public void setNama(String nama) {
+   public void setNama_Merk_Mobil(String nama) {
       this.nama_Merk_Mobil = nama;
    }
-   public String getNama() {
+   public String getNama_Merk_Mobil() {
       return nama_Merk_Mobil;
    }
    
-   public void setIdProd(String id_produsen_mobil) {
+   public void setId_produsen_mobil(String id_produsen_mobil) {
       this.id_produsen_mobil = id_produsen_mobil;
    }
-   public String getIdProd() {
+   public String getId_produsen_mobil() {
       return id_produsen_mobil;
    }
    
-   public void setNamaProd(String nama_produsen_mobil) {
+   public void setNama_produsen_mobil(String nama_produsen_mobil) {
       this.nama_produsen_mobil = nama_produsen_mobil;
    }
-   public String getNamaProd() {
+   public String getNama_produsen_mobil() {
       return nama_produsen_mobil;
    }
    
-   public void setIdJenis(String id_jenis) {
+   public void setId_jenis(String id_jenis) {
       this.id_jenis = id_jenis;
    }
-   public String getIdJenis() {
+   public String getId_jenis() {
       return id_jenis;
    }
    
-   public void setNamaJenis(String nama_jenis) {
+   public void setNama_jenis(String nama_jenis) {
       this.nama_jenis = nama_jenis;
    }
-   public String getNamaJenis() {
+   public String getNama_jenis() {
       return nama_jenis;
    }
 }

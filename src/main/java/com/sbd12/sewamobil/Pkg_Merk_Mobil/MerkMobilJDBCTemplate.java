@@ -21,7 +21,7 @@ import org.springframework.stereotype.Component;
 
 @Repository
 @Component("myService")
-public class Merk_MobilJDBCTemplate implements Merk_MobilDAO {
+public class MerkMobilJDBCTemplate implements MerkMobilDAO {
    @Autowired private DataSource dataSource;
    @Autowired private JdbcTemplate jdbcTemplateObject;
    
@@ -41,17 +41,17 @@ public class Merk_MobilJDBCTemplate implements Merk_MobilDAO {
    }
    
    @Override
-   public List<Merk_Mobil> listSemua() {
+   public List<MerkMobil> listSemua() {
       String SQL = "select mm.*,pm.nama_produsen,jm.nama_jenis"
               + " FROM tbl_merk_mobil        AS mm "
               + " JOIN tbl_produsen_mobil    AS PM   ON mm.id_produsen_mobil=pm.id_produsen_mobil"
               + " JOIN tbl_jenis_mobil       AS jm   ON mm.id_jenis_mobil=jm.id_jenis_mobil";
-      List <Merk_Mobil> merk_mobils = jdbcTemplateObject.query(SQL, new Merk_MobilMapper());
+      List <MerkMobil> merk_mobils = jdbcTemplateObject.query(SQL, new MerkMobilMapper());
       return merk_mobils;
    }
 
    @Override
-    public Merk_Mobil getId(Integer id) {
+    public MerkMobil getId(Integer id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

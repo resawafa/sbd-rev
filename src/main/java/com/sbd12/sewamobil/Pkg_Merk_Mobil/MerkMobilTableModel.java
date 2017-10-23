@@ -17,11 +17,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author ArieDZ
  */
-public class Merk_MobilTableModel extends AbstractTableModel{
-    private List<Merk_Mobil> data;
+public class MerkMobilTableModel extends AbstractTableModel{
+    private List<MerkMobil> data;
     private String[] nameField={"ID Merk","Produsen","Jenis","Nama"};
     
-    public void setData(List<Merk_Mobil> data)
+    public void setData(List<MerkMobil> data)
     {
         this.data=data;
     }
@@ -38,13 +38,13 @@ public class Merk_MobilTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int baris, int kolom) {
         
-        Merk_Mobil kst=data.get(baris);
+        MerkMobil kst=data.get(baris);
         switch(kolom)
         {
-            case 0: return kst.getIdMerk();
-            case 1: return kst.getNamaProd();
-            case 2: return kst.getNamaJenis();
-            case 3: return kst.getNama();
+            case 0: return kst.getId_merk_mobil();
+            case 1: return kst.getNama_produsen_mobil();
+            case 2: return kst.getNama_jenis();
+            case 3: return kst.getNama_Merk_Mobil();
             default : return null;
         }
     }

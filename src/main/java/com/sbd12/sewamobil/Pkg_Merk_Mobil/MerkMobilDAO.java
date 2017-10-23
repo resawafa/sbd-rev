@@ -15,7 +15,7 @@ import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.stereotype.Repository;
 
-public interface Merk_MobilDAO {
+public interface MerkMobilDAO {
    /** 
       * This is the method to be used to initialize
       * database resources ie. connection.
@@ -30,12 +30,12 @@ public interface Merk_MobilDAO {
      * @param age
    */
    public void create(String name, Integer age);
-   public Merk_Mobil getId(Integer id);
+   public MerkMobil getId(Integer id);
    
    /** 
      * This is the method to be used to list down
      * all the records from the Student table.
      * @return 
    */
-   public List<Merk_Mobil> listSemua();
+   public List<MerkMobil> listSemua();
 }

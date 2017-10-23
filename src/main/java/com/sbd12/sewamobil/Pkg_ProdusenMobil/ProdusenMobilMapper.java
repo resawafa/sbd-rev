@@ -14,11 +14,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 
-public class ProdusenMobilMapper implements RowMapper<Produsen_Mobil> {
-   public Produsen_Mobil mapRow(ResultSet rs, int rowNum) throws SQLException {
-      Produsen_Mobil produsen = new Produsen_Mobil();
-      produsen.setId(rs.getString("id_produsen_mobil"));
-      produsen.setNama(rs.getString("nama_produsen"));
+public class ProdusenMobilMapper implements RowMapper<ProdusenMobil> {
+
+    /**
+     *
+     * @param rs
+     * @param rowNum
+     * @return
+     * @throws SQLException
+     */
+    @Override
+   public ProdusenMobil mapRow(ResultSet rs, int rowNum) throws SQLException {
+      ProdusenMobil produsen = new ProdusenMobil();
+      produsen.setId_produsen(rs.getString("id_produsen_mobil"));
+      produsen.setNama_produsen(rs.getString("nama_produsen"));
       return produsen;
    }
 }

@@ -10,20 +10,20 @@ package com.sbd12.sewamobil.Pkg_ProdusenMobil;
  *
  * @author ArieDZ_2
  */
-public class Produsen_Mobil {
+public class ProdusenMobil {
    private String id_produsen;
    private String nama_produsen;
 
-   public void setId(String id) {
+   public void setId_produsen(String id) {
       this.id_produsen = id;
    }
-   public String getId() {
+   public String getId_produsen() {
       return id_produsen;
    }
-   public void setNama(String nama) {
+   public void setNama_produsen(String nama) {
       this.nama_produsen = nama;
    }
-   public String getNama() {
+   public String getNama_produsen() {
       return nama_produsen;
    }
 }
