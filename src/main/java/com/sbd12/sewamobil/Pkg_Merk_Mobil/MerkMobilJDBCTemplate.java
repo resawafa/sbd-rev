@@ -21,7 +21,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Repository
-@Component
 @Service
 public class MerkMobilJDBCTemplate implements MerkMobilDAO {
    @Autowired private DataSource dataSource;

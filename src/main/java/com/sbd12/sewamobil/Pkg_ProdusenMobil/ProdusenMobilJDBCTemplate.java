@@ -20,13 +20,17 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Repository
-@Component
 @Service
 public class ProdusenMobilJDBCTemplate implements ProdusenMobilDAO {
 
    @Autowired private DataSource dataSource;
    @Autowired private JdbcTemplate jdbcTemplateObject;
-   
+
+
+   /**Note
+    * @Autowired berguna untuk Depedency Injection pada Spring
+    * @param dataSource
+    */
    @Autowired
    @Override
    public void setDataSource(DataSource dataSource) {

@@ -47,13 +47,11 @@ public class panel_data_barang extends javax.swing.JPanel {
         initComponents();
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         ProdusenMobilJDBCTemplate produsenmobilJDBCTemplate = (ProdusenMobilJDBCTemplate)
-                context.getBean("ProdusenMobilJDBCTemplate");
+                context.getBean("produsenMobilJDBCTemplate");
         produsens = produsenmobilJDBCTemplate.listSemua();
 
 
-        tampilData_produsen();
-
-
+        tampilData_produsen();;
 
         refreshData();
     }
@@ -348,11 +346,19 @@ public class panel_data_barang extends javax.swing.JPanel {
         }*/
     }//GEN-LAST:event_BtCariActionPerformed
 
+    /**
+     *
+     * @param evt
+     * "Config-Spring.xml" lokasi settingan database ada di sini src/main/resource
+     */
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
+        /*
+            Perhatian!! context.getBean(String) <-- Huruf awal String harus kecil
+         */
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         ProdusenMobilJDBCTemplate produsenmobilJDBCTemplate = (ProdusenMobilJDBCTemplate)
-                context.getBean("ProdusenMobilJDBCTemplate");
+                context.getBean("produsenMobilJDBCTemplate");
         produsens = produsenmobilJDBCTemplate.listSemua();
 
         try {
@@ -361,13 +367,19 @@ public class panel_data_barang extends javax.swing.JPanel {
             Logger.getLogger(panel_data_barang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
-
+    /**
+     *
+     * @param evt
+     * "Config-Spring.xml" lokasi settingan database ada di sini src/main/resource
+     */
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-
+        /*
+            Perhatian!! context.getBean(String) <-- Huruf awal String harus kecil
+         */
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         MerkMobilJDBCTemplate merk_mobilJDBCTemplate = (MerkMobilJDBCTemplate)
-                context.getBean("MerkMobilJDBCTemplate");
+                context.getBean("merkMobilJDBCTemplate");
 
 
         merk_Mobils = merk_mobilJDBCTemplate.listSemua();
