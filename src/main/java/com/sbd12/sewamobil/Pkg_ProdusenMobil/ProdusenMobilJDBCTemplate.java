@@ -17,10 +17,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 @Repository
-@Component("myService")
+@Component
+@Service
 public class ProdusenMobilJDBCTemplate implements ProdusenMobilDAO {
+
    @Autowired private DataSource dataSource;
    @Autowired private JdbcTemplate jdbcTemplateObject;
    

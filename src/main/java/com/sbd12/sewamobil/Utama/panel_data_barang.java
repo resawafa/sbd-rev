@@ -30,48 +30,51 @@ public class panel_data_barang extends javax.swing.JPanel {
     /**
      * Creates new form panel_data_barang
      */
-    
+
     public ProdusenTableModel tabelProdusen;
     public MerkMobilTableModel tableMerk;
-   /* public FTambahBarang formtambah;
-    public FUpdateBarang formupdate;*/
+    /* public FTambahBarang formtambah;
+     public FUpdateBarang formupdate;*/
     public frm_Utama_metro form_parent;
-    
+
     public List<ProdusenMobil> produsens ;
     public List<MerkMobil> merk_Mobils ;
-    
+
+
+
+
     public panel_data_barang() throws ClassNotFoundException {
         initComponents();
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         ProdusenMobilJDBCTemplate produsenmobilJDBCTemplate = (ProdusenMobilJDBCTemplate)
-        context.getBean("ProdusenMobilJDBCTemplate");
+                context.getBean("ProdusenMobilJDBCTemplate");
         produsens = produsenmobilJDBCTemplate.listSemua();
-       
-       
+
+
         tampilData_produsen();
-        
-        
-         
+
+
+
         refreshData();
     }
-public void tampilData_produsen() throws ClassNotFoundException
+    public void tampilData_produsen() throws ClassNotFoundException
     {
-        
+
         tabelProdusen = new ProdusenTableModel();
         tabelProdusen.setData(produsens);
         jTable1.setModel(tabelProdusen);
-        
+
     }
 
-public void tampilData_merk() throws ClassNotFoundException
+    public void tampilData_merk() throws ClassNotFoundException
     {
-        
+
         tableMerk = new MerkMobilTableModel();
         tableMerk.setData(merk_Mobils);
         jTable1.setModel(tableMerk);
-        
+
     }
-    
+
     public void refreshData() throws ClassNotFoundException
     {
        /* tabelbarang.setData(db.tampil_semua());
@@ -109,15 +112,15 @@ public void tampilData_merk() throws ClassNotFoundException
         jScrollPane1.setPreferredSize(new java.awt.Dimension(768, 331));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
+                new Object [][] {
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null},
+                        {null, null, null, null}
+                },
+                new String [] {
+                        "Title 1", "Title 2", "Title 3", "Title 4"
+                }
         ));
         jScrollPane1.setViewportView(jTable1);
 
@@ -180,72 +183,72 @@ public void tampilData_merk() throws ClassNotFoundException
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtTambah)
-                    .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(BtEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtHapus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtCari, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 98, Short.MAX_VALUE))
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jToggleButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(bgLayout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(BtTambah)
+                                        .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(BtEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BtHapus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BtCari, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(BtRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 98, Short.MAX_VALUE))
+                        .addGroup(bgLayout.createSequentialGroup()
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(bgLayout.createSequentialGroup()
+                                                .addGap(176, 176, 176)
+                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(bgLayout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(jToggleButton1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jToggleButton2)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jToggleButton3)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         bgLayout.setVerticalGroup(
-            bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bgLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3))
-                .addGap(18, 18, 18)
-                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addComponent(BtTambah)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtEdit)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtHapus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtRefresh)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtCari)))
-                .addContainerGap())
+                bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(bgLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jToggleButton1)
+                                        .addComponent(jToggleButton2)
+                                        .addComponent(jToggleButton3))
+                                .addGap(18, 18, 18)
+                                .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(bgLayout.createSequentialGroup()
+                                                .addComponent(BtTambah)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BtEdit)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BtHapus)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BtRefresh)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(BtCari)))
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(bg, 948, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(bg, 948, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,7 +263,7 @@ public void tampilData_merk() throws ClassNotFoundException
             refreshData();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(panel_data_barang.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
 
     }//GEN-LAST:event_BtTambahActionPerformed
 
@@ -349,9 +352,9 @@ public void tampilData_merk() throws ClassNotFoundException
         // TODO add your handling code here:
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         ProdusenMobilJDBCTemplate produsenmobilJDBCTemplate = (ProdusenMobilJDBCTemplate)
-         context.getBean("ProdusenMobilJDBCTemplate");
-       produsens = produsenmobilJDBCTemplate.listSemua();
-       
+                context.getBean("ProdusenMobilJDBCTemplate");
+        produsens = produsenmobilJDBCTemplate.listSemua();
+
         try {
             tampilData_produsen();
         } catch (ClassNotFoundException ex) {
@@ -361,15 +364,15 @@ public void tampilData_merk() throws ClassNotFoundException
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        
+
         ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         MerkMobilJDBCTemplate merk_mobilJDBCTemplate = (MerkMobilJDBCTemplate)
-        context.getBean("MerkMobilJDBCTemplate");
-        
-        
+                context.getBean("MerkMobilJDBCTemplate");
+
+
         merk_Mobils = merk_mobilJDBCTemplate.listSemua();
-       
-       
+
+
         try {
             tampilData_merk();
         } catch (ClassNotFoundException ex) {
