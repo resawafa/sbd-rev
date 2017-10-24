@@ -226,11 +226,9 @@ public class frm_Utama_metro extends javax.swing.JFrame {
         jP_Kostumer.setForeground(new java.awt.Color(0, 153, 153));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("PENGOLAHAN DATABASE ");
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("PENYEWAAN MOBIL");
 
         javax.swing.GroupLayout jP_KostumerLayout = new javax.swing.GroupLayout(jP_Kostumer);
