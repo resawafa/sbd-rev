@@ -23,6 +23,8 @@ public class frm_Utama_metro extends javax.swing.JFrame {
      * Creates new form frm_Utama_metro
      */
      panel_data_barang pdb;
+     
+     /*panel baru misal*/
     /*panel_data_transaksi pdt;
     panel_data_kostumer pdk; 
      panel_data_petugas pdp; */      
@@ -30,15 +32,15 @@ public class frm_Utama_metro extends javax.swing.JFrame {
         initComponents();
          pdb=new panel_data_barang();
          
-        
-         /*pdt = new panel_data_transaksi();
+        // iniasisasli panel baru
+        /*pdt = new panel_data_transaksi();
          pdk = new panel_data_kostumer();
          pdp=new panel_data_petugas();*/
          
         
     }
  public void ganti_panel() throws  ClassNotFoundException
- {   jP_Barang.removeAll();
+ {      jP_Barang.removeAll();
         jP_Barang.add(pdb);
         jP_Barang.repaint();
         jP_Barang.revalidate();
