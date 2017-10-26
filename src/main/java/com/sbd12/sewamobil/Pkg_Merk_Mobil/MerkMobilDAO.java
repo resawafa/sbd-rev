@@ -13,6 +13,7 @@ package com.sbd12.sewamobil.Pkg_Merk_Mobil;
 
 import java.util.List;
 import javax.sql.DataSource;
+import javax.swing.JComboBox;
 import org.springframework.stereotype.Repository;
 
 public interface MerkMobilDAO {
@@ -29,7 +30,7 @@ public interface MerkMobilDAO {
      * @param name
      * @param age
    */
-   public void create(String name, Integer age);
+   public void create(String id_merk_mobil, String id_produsen_mobil, String id_jenis_mobil, String nama_mobil );
    public MerkMobil getId(Integer id);
    
    /** 
@@ -38,4 +39,5 @@ public interface MerkMobilDAO {
      * @return 
    */
    public List<MerkMobil> listSemua();
+   public void combo_box(JComboBox Combo);
 }

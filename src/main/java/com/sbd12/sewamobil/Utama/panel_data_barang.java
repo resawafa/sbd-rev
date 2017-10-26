@@ -23,6 +23,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.sbd12.sewamobil.Pkg_Merk_Mobil.*;
 import com.sbd12.sewamobil.Pkg_ProdusenMobil.*;
 import com.sbd12.sewamobil.Pkg_Data_Mobil.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 /**
  *
@@ -44,20 +46,46 @@ public class panel_data_barang extends javax.swing.JPanel {
     public List<ProdusenMobil> produsens ;
     public List<MerkMobil> merk_Mobils ;
     public List<DataMobil> data_mobil;
-
+    public MerkMobilJDBCTemplate db;
 
 
 
 
     public panel_data_barang() throws ClassNotFoundException {
         initComponents();
-        ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
+       /* ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
         ProdusenMobilJDBCTemplate produsenmobilJDBCTemplate = (ProdusenMobilJDBCTemplate)
                 context.getBean("produsenMobilJDBCTemplate");
-        produsens = produsenmobilJDBCTemplate.listSemua();
+        produsens = produsenmobilJDBCTemplate.listSemua(); */
+        
+        ApplicationContext context = new ClassPathXmlApplicationContext("Config-Spring.xml");
+        MerkMobilJDBCTemplate merk_mobilJDBCTemplate = (MerkMobilJDBCTemplate)
+                context.getBean("merkMobilJDBCTemplate");
 
 
-        tampilData_produsen();
+        merk_Mobils = merk_mobilJDBCTemplate.listSemua();
+        
+        
+           jTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                if (e.getClickCount() >= 1) {
+                    int baris = jTable1.getSelectedRow();
+                    String id_mobil = (String) tableMerk.getValueAt(baris, 0);
+                    System.out.println("id =" + id_mobil);
+                  // MerkMobil mm =  db.pilih_data(id_mobil);
+                   MerkMobil mm =merk_mobilJDBCTemplate.pilih_data(id_mobil);
+                   tf_id_merk.setText(mm.getId_merk_mobil());
+                    tf_id_jenis.setText(mm.getId_jenis());
+                    tf_id_produsen.setText(mm.getId_produsen_mobil());
+                    tf_nama_merk.setText(mm.getNama_Merk_Mobil()); 
+                
+                
+                }
+            }
+        });
+        tampilData_merk();
+        //tampilData_produsen();
 
         refreshData();
     }
@@ -111,10 +139,19 @@ public class panel_data_barang extends javax.swing.JPanel {
         BtHapus = new javax.swing.JButton();
         BtRefresh = new javax.swing.JButton();
         BtCari = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
         jToggleButton3 = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        tf_id_merk = new javax.swing.JTextField();
+        tf_nama_merk = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        tf_id_jenis = new javax.swing.JTextField();
+        tf_id_produsen = new javax.swing.JTextField();
+        jCB_id_produsen = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(960, 510));
 
@@ -172,11 +209,6 @@ public class panel_data_barang extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 27)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TABEL DATA BARANG");
-        jLabel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         jToggleButton1.setText("Produsen Mobil");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,6 +230,87 @@ public class panel_data_barang extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setText("ID Merk");
+
+        tf_id_merk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_id_merkActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nama Merk");
+
+        jLabel4.setText("Produsen");
+
+        jLabel5.setText("Jenis");
+
+        tf_id_jenis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_id_jenisActionPerformed(evt);
+            }
+        });
+
+        tf_id_produsen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tf_id_produsenActionPerformed(evt);
+            }
+        });
+
+        jCB_id_produsen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel2))
+                            .addGap(78, 78, 78))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(68, 68, 68)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(102, 102, 102)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tf_id_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(tf_nama_merk, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                            .addComponent(tf_id_merk, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_id_produsen, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(18, 18, 18)
+                        .addComponent(jCB_id_produsen, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(453, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(tf_id_merk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_id_produsen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCB_id_produsen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_id_jenis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_nama_merk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(144, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
@@ -212,14 +325,12 @@ public class panel_data_barang extends javax.swing.JPanel {
                         .addComponent(BtHapus, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtCari, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BtRefresh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(0, 103, Short.MAX_VALUE))
+                .addGap(0, 98, Short.MAX_VALUE))
             .addGroup(bgLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bgLayout.createSequentialGroup()
-                        .addGap(176, 176, 176)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bgLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jToggleButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jToggleButton2)
@@ -230,9 +341,9 @@ public class panel_data_barang extends javax.swing.JPanel {
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton1)
                     .addComponent(jToggleButton2)
@@ -264,8 +375,9 @@ public class panel_data_barang extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, 766, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -433,6 +545,18 @@ public class panel_data_barang extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
+    private void tf_id_merkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_merkActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_id_merkActionPerformed
+
+    private void tf_id_jenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_jenisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_id_jenisActionPerformed
+
+    private void tf_id_produsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_id_produsenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tf_id_produsenActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCari;
@@ -441,11 +565,20 @@ public class panel_data_barang extends javax.swing.JPanel {
     private javax.swing.JButton BtRefresh;
     private javax.swing.JButton BtTambah;
     private javax.swing.JPanel bg;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> jCB_id_produsen;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JTextField tf_id_jenis;
+    private javax.swing.JTextField tf_id_merk;
+    private javax.swing.JTextField tf_id_produsen;
+    private javax.swing.JTextField tf_nama_merk;
     // End of variables declaration//GEN-END:variables
 }
