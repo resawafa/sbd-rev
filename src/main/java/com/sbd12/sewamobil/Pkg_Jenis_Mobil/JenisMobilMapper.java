@@ -20,8 +20,8 @@ public class JenisMobilMapper implements RowMapper<JenisMobil> {
     public JenisMobil mapRow(ResultSet rs, int i) throws SQLException {
       JenisMobil jenisMobil = new JenisMobil();
       jenisMobil.setId_jenis_mobil(rs.getString("Id_jenis_mobil"));
-      jenisMobil.setNama_jenis_mobil(rs.getString("Nama_Jenis_Mobil"));
-      jenisMobil.setHarga_mobil(rs.getString("Harga_mobil"));
+      jenisMobil.setNama_jenis_mobil(rs.getString("Nama_Jenis"));
+      jenisMobil.setHarga_mobil(rs.getString("Harga"));
      
       
       
