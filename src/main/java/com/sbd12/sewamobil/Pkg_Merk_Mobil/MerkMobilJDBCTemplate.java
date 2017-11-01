@@ -84,5 +84,24 @@ public class MerkMobilJDBCTemplate implements MerkMobilDAO {
             rs.getString("nama_produsen")
         });
         
-    }; */
+    }; */}
+    
+    @Override
+    public void delete(String id)
+    {
+        String SQL = "delete from tbl_merk_mobil where id_merk_mobil = ?";
+        jdbcTemplateObject.update(SQL, id);
+        return;
+    }
+    
+     //merk_mobilJDBCTemplate.update(id, tf_id_produsen.getText(), tf_id_jenis.getText(), tf_nama_merk.getText());
+     @Override
+    public void update(String id,String idProd,String idJenis,String namaMerk)
+    {
+         //String SQL="UPDATE tbl_merk_mobil SET nama_mobil=? where id_merk_mobil=?"
+        String SQL="UPDATE tbl_merk_mobil SET id_produsen_mobil=?,id_jenis_mobil=?,nama_mobil=? where id_merk_mobil=?"
+        
+         jdbcTemplateObject.update(SQL, namaMerk, id);
+         return;
+    }
 }

@@ -25,6 +25,7 @@ public class frm_Utama_metro extends javax.swing.JFrame {
      panel_data_barang pdb;
      
      /*panel baru misal*/
+//     panel_kostumer pk;
     /*panel_data_transaksi pdt;
     panel_data_kostumer pdk; 
      panel_data_petugas pdp; */      
