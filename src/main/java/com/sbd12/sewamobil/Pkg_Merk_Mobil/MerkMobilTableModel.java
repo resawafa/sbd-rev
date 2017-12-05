@@ -45,6 +45,8 @@ public class MerkMobilTableModel extends AbstractTableModel{
             case 1: return kst.getNama_produsen_mobil();
             case 2: return kst.getNama_jenis();
             case 3: return kst.getNama_Merk_Mobil();
+            case 4: return kst.getId_jenis();
+            case 5: return kst.getId_produsen_mobil();
             default : return null;
         }
     }
